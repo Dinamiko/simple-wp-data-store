@@ -1,13 +1,19 @@
-import {useState} from '@wordpress/element';
+import { useDispatch, useSelect } from '@wordpress/data';
 import './store'
 
 export function App() {
-    const [counter, setCounter] = useState(0)
+    const counter = useSelect(
+        ( select ) => {
+            return select( 'counter' ).getCounter()
+        },
+        []
+    );
+
+    const { increase, decrease } = useDispatch( 'counter' );
 
     return <>
         <div>Counter: {counter}</div>
-        <button onClick={() => {setCounter(counter -1)}}>-</button>
-        <button onClick={() => {setCounter(counter +1)}}>+</button>
+        <button onClick={() => decrease()}>-</button>
+        <button onClick={() => increase()}>+</button>
     </>
-
 }

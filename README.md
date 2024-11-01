@@ -16,5 +16,11 @@ $ npm run start
 dispatch = wp.data.dispatch( 'counter' );
 select = wp.data.select( 'counter' );
 
+select.getCounter() // 0
 dispatch.increase()
+select.getCounter() // 1
+dispatch.decrease()
+select.getCounter() // 0
 ```
+
+
