@@ -1,4 +1,5 @@
 import {useState} from '@wordpress/element';
+import './store'
 
 export function App() {
     const [counter, setCounter] = useState(0)
